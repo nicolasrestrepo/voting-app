@@ -1,0 +1,432 @@
+
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container {
+  font-family: 'Lato', sans-serif;
+
+     // ************************* Hero Section *******************
+  .hero {
+    height: 930px;
+    position: relative;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    .cover{
+      filter:brightness(0.9);
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      bottom: 0;
+    }
+    nav {
+      background: rgba($color: $text_color_gray, $alpha: .1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      @include flexbox();
+      @include justify-content(space-between);
+      @include align-items(center);
+      height: 150px; 
+      color: #fff;
+      .title {
+        padding-left: 130px;
+        h2{
+          margin: 0;
+        }
+      }
+      .options{
+        width: 50%;
+        @include flexbox();
+        @include justify-content(space-evenly);
+      }
+      .openDrawer{
+        display: none;
+      }
+      img{
+        width: 25px;
+      }
+    }
+    .opinion {
+        height: 450px;
+        width: 450px;
+        margin: 0px 0px 150px 200px;
+        @include flexbox();
+        @include flex-direction(column);
+        background: rgba($color: #767474, $alpha: .9);
+
+        .content{
+            @include flexbox();
+            @include justify-content(space-between);
+            @include align-items(flex-start);
+            @include flex-direction(column);
+            padding: 30px;
+            width: 100%;
+            color:white;
+            height: 100%;
+            opacity: 2;
+            .title{
+              span{
+                font-size: 16px;
+                text-align: left;
+              }
+              h1{
+                margin: 0;
+                font-size: 60px;
+              }
+            }
+            p{
+              font-size: 19px;
+              width: 395px;
+              text-align: left;
+            }
+            .moreInfo{
+              img{
+                margin-right: 5px;
+              }
+              a{
+                color: #fff;
+              }
+            }
+            .question{
+              font-size: 19px;
+            }
+        }
+
+        .voting{
+          width: 100%;
+          @include flexbox();
+          .option{
+            width: 50%;
+            height: 80px;
+            @include flexbox();
+            @include justify-content(center);
+            @include align-items(center);
+            cursor: pointer;
+          }
+          .up {
+            background: rgba($color: $thumbs_up_color, $alpha: .8);
+          }
+          .down {
+            background: rgba($color: $thumbs_down_color, $alpha: .8);
+          }
+        }
+    }
+
+
+
+    .closing {
+      width: 100%;
+      height: 50px;
+      @include flexbox();
+
+      .text{
+        background: rgba($color: #000, $alpha: .5);
+        width: 40%;
+        color: #fff;
+        font-size: 10px;
+        position: relative;
+        padding-right: 5px;
+        @include flexbox();
+        @include justify-content(flex-end);
+        @include align-items(center);
+        &::after {
+          content: "";
+          position: absolute;
+          left: 100%;
+          top: 20px;
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-left: 8px solid rgba($color: #000, $alpha: .5);
+          border-bottom: 5px solid transparent;
+        }
+      }
+      .days{
+        background: rgba($color: #fff, $alpha: .5);
+        font-size: 35px;
+        color: rgba($color:#454545, $alpha: .5);
+        width: 60%;
+        padding-left: 15px;
+        @include flexbox();
+        @include justify-content(flex-start);
+        @include align-items(center);
+        strong{
+           margin-right: 7px;
+           color: rgba(70, 70, 70, 255);
+        }
+      }
+    }
+
+
+    @media (max-width: 720px){
+      overflow: hidden;
+      .cover{
+        height: auto;
+        width: auto;
+        // this translate is use to center the img
+        transform: translate(-500px, 10px);
+      }
+      nav {
+          @include justify-content(space-around);
+          .title{
+            padding: 0;
+          }
+          .options{
+            display: none;
+          }
+          .openDrawer{
+            display: block;
+            justify-self: flex-start
+          }
+        }
+      .opinion {
+        width: 320px;
+        height: 320px;
+        margin: auto;
+
+        .content{
+          .title{
+              span{
+                font-size: 10px;
+              }
+              h1{
+                font-size: 30px;
+              }
+            }
+            p{
+              font-size: 10px;
+              width: 250px;
+            }
+            .moreInfo{
+              img{
+                margin-right: 5px;
+              }
+              a{
+                color: #fff;
+              }
+            }
+            .question{
+              font-size: 10px;
+            }
+        }
+      }
+      .voting{
+          .option{
+            width: 50%;
+            height: 30px;
+          }
+        }
+    }
+
+  }
+  // ************************* End Hero Section *******************
+
+  // ************************* Info About Speak Out *******************
+  .info{
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+
+    .alert{
+      width: $standard_width;
+      @include flexbox();
+      @include justify-content(space-evenly);
+      @include align-items(center);
+      background-color: #ebebeb;
+      margin: 50px 0;
+      .title{
+        padding: 5px;
+        h1{
+          margin: 0;
+          font-size: 35px;
+          color: rgba($color: $text_color_gray, $alpha: .9);;
+        }
+        span{
+          font-weight: 100;
+          color: rgba($color: $text_color_gray, $alpha: .5);
+          font-size: 20px; 
+        }
+      }
+      p{
+        width: 720px;
+        color: rgba($color: $text_color_gray, $alpha: .5);
+        font-size: 13px;
+      }
+      .close{
+        background: none;
+        border: none;
+        cursor: pointer;
+        &:focus {outline:0;}
+      }
+    }
+ // ************************* Responsive *******************
+  @media (max-width: 720px){
+      .alert{
+        width: 320px;
+        margin: 50px 0;
+        padding: 15px;
+        @include flex-direction(column);
+        .title{
+        h1{
+            font-size: 20px;
+          }
+        span{
+          font-size: 15px; 
+        }
+        }
+        p {
+        width: 100%;
+        font-size: 10px;
+        }
+      }
+  }
+  }
+
+
+     // ************************* End Info About Speak Out *******************
+
+  // ************************* Content Previus Rulings *******************
+  .previusRulings {
+     @include flexbox();
+     @include justify-content(center);
+     @include align-items(center);
+     @include flex-direction(column);
+    .content{
+      width: $standard_width;
+      .title{
+        font-size: 40px;
+        margin: 0 0 30px 0;
+        color: rgba($color: $text_color_gray, $alpha: .8);
+      }
+      .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 490px);
+        grid-gap: 40px;
+        @media (max-width: 720px) {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          grid-gap: 5px;
+        }
+
+        }
+      }
+
+      @media (max-width: 720px) {
+          .content{
+            width: 100%;
+            .title{
+              @include flexbox();
+              @include justify-content(center);
+              @include align-items(center);
+            }
+            .cards{
+              display: grid;
+              grid-template-columns: 1fr;
+              grid-template-rows: repeat(2, 1fr);
+
+            }
+          }
+      }
+    }
+
+  // ************************* End ontent Previus Rulings *******************
+
+  // ************************* Banner to add anyone *******************
+  .anyoneInfo{
+     @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+    .banner{
+        background-image: url('../assets/banner.png');
+        background-repeat: no-repeat;
+        background-size: cover; 
+        width: $standard_width;
+        margin: 40px 0; 
+        height: 100px;
+       .content{
+        @include flexbox();
+        @include justify-content(space-around);
+        @include align-items(center);
+        background: rgba($color: #fff, $alpha: .9);
+        height: 100%;
+        button{
+            background: transparent;
+            color: #000;
+            padding: 14px 25px;
+            cursor: pointer;
+            font-size: 20px;
+            border: 2px solid #000; 
+          }
+        .text{
+          color: rgba(51, 51, 51, .8);
+          font-size: 30px;
+        }  
+       } 
+    } 
+
+    @media (max-width: 720px){
+        width: 320px;
+        margin: 40px auto;
+      .banner{
+        margin: auto;
+        width: 100%;
+        .content{
+          @include flex-direction(column);
+          button{
+            padding: 4px 10px;
+            font-size: 15px;
+          }
+        .text{
+          font-size: 15px;
+        } 
+        }
+      }
+    }
+  }
+ // ************************* End Banner to add anyone *******************
+
+ // ************************* Footer *******************
+    .footer{
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+      .content{
+        padding: 30px 0;
+        @include flexbox();
+        @include justify-content(space-between);
+        @include align-items(center);
+        width: $standard_width;
+        border-top: 1px dotted rgba($color: $text_color_gray, $alpha: .5);
+        color: rgba(51, 51, 51, .7);
+        font-size: 12px;
+        .links, .followUs{
+          @include flexbox();
+          @include justify-content(space-between);
+          @include align-items(center);
+          a{
+            text-decoration: none;
+            color: rgba($color: $text_color_gray, $alpha: .7);
+          }
+        }
+        .links{
+          width: 285px;
+        }
+        .followUs {
+          width: 150px;
+        }
+      }
+      
+
+      @media (max-width: 720px){
+        .content{
+          padding: 30px 0;
+          .links, .followUs{
+            @include flex-direction(column);
+          }
+        }
+      }
+    }
+ // ************************* End Footer *******************
+
+}
