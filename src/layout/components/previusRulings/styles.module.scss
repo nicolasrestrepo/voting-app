@@ -1,0 +1,49 @@
+  @import '../../../styles/variables';
+  @import '../../../styles/mixins';
+
+  // ************************* Content Previus Rulings *******************
+  .previusRulings {
+     @include flexbox();
+     @include justify-content(center);
+     @include align-items(center);
+     @include flex-direction(column);
+    .content{
+      width: $standard_width;
+      .title{
+        font-size: 40px;
+        margin: 0 0 30px 0;
+        color: rgba($color: $text_color_gray, $alpha: .8);
+      }
+      .loading {
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        @include flex-direction(column);
+        height: 500px;
+      }
+      .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 490px);
+        grid-gap: 40px;
+        }
+      }
+
+      @media (max-width: 720px) {
+          .content{
+            width: 100%;
+            .title{
+              @include flexbox();
+              @include justify-content(center);
+              @include align-items(center);
+            }
+            .cards{
+              display: grid;
+              grid-template-columns: 1fr;
+              grid-template-rows: repeat(2, 1fr);
+
+            }
+          }
+      }
+    }
+
+  // ************************* End ontent Previus Rulings *******************

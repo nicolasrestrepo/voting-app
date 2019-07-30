@@ -1,0 +1,19 @@
+
+.modalContent{
+  .content{
+    p{
+      font-size: 25px;
+    }
+  }
+  .options{
+
+     button {
+        background: transparent;
+        color: #000;
+        padding: 14px 25px;
+        cursor: pointer;
+        font-size: 20px;
+        order: 2px solid #000; 
+      }
+  }
+}

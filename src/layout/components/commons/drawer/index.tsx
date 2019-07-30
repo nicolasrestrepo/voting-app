@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch } from 'react'
 import styles from './styles.module.scss'
 
 const cx = classNames.bind(styles)
 
 interface IProps {
   openDrawer: boolean
-  setOpenDrawer: any
+  setOpenDrawer: Dispatch<React.SetStateAction<boolean>>
 }
 
 const Drawer = ({ openDrawer, setOpenDrawer }: IProps) => {
