@@ -1,0 +1,62 @@
+  @import '../../../styles/variables';
+  @import '../../../styles/mixins';
+
+ .info{
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+
+    .alert{
+      width: $standard_width;
+      @include flexbox();
+      @include justify-content(space-evenly);
+      @include align-items(center);
+      background-color: #ebebeb;
+      margin: 50px 0;
+      .title{
+        padding: 5px;
+        h1{
+          margin: 0;
+          font-size: 35px;
+          color: rgba($color: $text_color_gray, $alpha: .9);;
+        }
+        span{
+          font-weight: 100;
+          color: rgba($color: $text_color_gray, $alpha: .5);
+          font-size: 20px; 
+        }
+      }
+      p{
+        width: 720px;
+        color: rgba($color: $text_color_gray, $alpha: .5);
+        font-size: 13px;
+      }
+      .close{
+        background: none;
+        border: none;
+        cursor: pointer;
+        &:focus {outline:0;}
+      }
+    }
+ // ************************* Responsive *******************
+  @media (max-width: 720px){
+      .alert{
+        width: 320px;
+        margin: 50px 0;
+        padding: 15px;
+        @include flex-direction(column);
+        .title{
+        h1{
+            font-size: 20px;
+          }
+        span{
+          font-size: 15px; 
+        }
+        }
+        p {
+        width: 100%;
+        font-size: 10px;
+        }
+      }
+  }
+  }
