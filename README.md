@@ -4,6 +4,8 @@ voting app for candidates, for the layout simply use html and scss.
 
 # run
 
+Change .env.example to .env
+
 [Yarn](https://github.com/yarnpkg/)
 
 ```sh
